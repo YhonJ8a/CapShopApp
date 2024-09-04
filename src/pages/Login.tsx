@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom'; // Usamos useNavigate en lugar de useHistory
+import { useNavigate, Navigate } from 'react-router-dom'; // Usamos useNavigate en lugar de useHistory
 import '../assets/styles/Login.css';
 
 const Login: React.FC = () => {
@@ -11,7 +11,7 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
 
-  if (!authContext) return navigate('/notFound');
+  if (!authContext) return<Navigate to="/login" replace />;
 
   const { login } = authContext;
 

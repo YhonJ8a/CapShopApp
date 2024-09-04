@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactNode } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-import { useNavigate, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-export default function Home() {
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+const  Home :React.FC<AuthProviderProps> = ({children}) => {
   const authContext = useContext(AuthContext);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   if (!authContext) return <Navigate to="/login" replace />;
 
@@ -12,8 +16,16 @@ export default function Home() {
 
   if (user) {
     console.log("USER: ", user);
-    navigate("/login");
+    //navigate("/login");
   }
 
-  return <h1 className="home">Home</h1>;
+  return (
+  
+  <div className="home">
+    {children}
+  </div>
+
+  );
 }
+
+export default Home;
