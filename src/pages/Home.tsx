@@ -23,6 +23,7 @@ const  Home :React.FC<AuthProviderProps> = ({children}) => {
   
   <div className="home">
     {children}
+    pruebas
   </div>
 
   );
