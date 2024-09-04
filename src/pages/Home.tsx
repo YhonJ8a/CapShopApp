@@ -6,7 +6,7 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-const  Home :React.FC<AuthProviderProps> = ({children}) => {
+const Home: React.FC<AuthProviderProps> = ({ children }) => {
   const authContext = useContext(AuthContext);
   //const navigate = useNavigate();
 
@@ -20,11 +20,10 @@ const  Home :React.FC<AuthProviderProps> = ({children}) => {
   }
 
   return (
-  
-  <div className="home">
-    {children}
-    pruebas
-  </div>
+
+    <div className="home">
+      {children}
+    </div>
 
   );
 }
