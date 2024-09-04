@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 
-export default function Dashboard() {
+const Dashboard: React.FC = () => {
+  const authContext = useContext(AuthContext);
+
+  if (!authContext) {
+    return null;
+  }
+
+  const { user, logout } = authContext;
+
   return (
-    <h1>Dashboard</h1>
-  )
-}
+    <div>
+      <h1>Bienvenido, {user?.name}</h1>
+      <button onClick={logout}>Cerrar Sesión</button>
+    </div>
+  );
+};
+
+export default Dashboard;
