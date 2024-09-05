@@ -1,36 +1,27 @@
 // src/contexts/AuthContext.tsx
-import React, { createContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode } from 'react';
+import { useRouter } from 'next/router';
 
 interface AuthContextType {
-    user: object | null;
-    login: (userData: object) => void;
+    user: string | null;
+    login: (username: string) => void;
     logout: () => void;
 }
 
-export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-interface AuthProviderProps {
-    children: ReactNode;
-}
+export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const [user, setUser] = useState<string | null>(null);
+    const router = useRouter();
 
-const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-    const [user, setUser] = useState<object | null>(null);
-
-    useEffect(() => {
-        const loggedUser = localStorage.getItem('user');
-        if (loggedUser) {
-            setUser(JSON.parse(loggedUser));
-        }
-    }, []);
-
-    const login = (userData: object) => {
-        setUser(userData);
-        localStorage.setItem('user', JSON.stringify(userData));
+    const login = (username: string) => {
+        setUser(username);
+        router.push('/home');
     };
 
     const logout = () => {
         setUser(null);
-        localStorage.removeItem('user');
+        router.push('/login');
     };
 
     return (
@@ -40,4 +31,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     );
 };
 
-export default AuthProvider;
+export const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error('useAuth must be used within an AuthProvider');
+    }
+    return context;
+};

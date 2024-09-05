@@ -4,18 +4,26 @@
     align-items: center;
     justify-content: space-between;
     background-color: #333;
-    padding: 1rem;
+    height: 7vh;
+    width: 100%;
+    gap: 5px;
   }
-  
+
+  .navbar__brand {
+    padding-left: 20px;
+  }
+
   .navbar__brand-link {
     color: #fff;
     text-decoration: none;
     font-size: 1.5rem;
+    width: 100%;
   }
   
   .navbar__links {
     list-style: none;
     display: flex;
+    width: 100%;
     margin: 0;
     padding: 0;
   }
@@ -35,3 +43,14 @@
     border-bottom: 2px solid #fff;
   }
   
+  .navbar__button{
+    background-color: blueviolet;
+    border-radius: 12px;
+    height: 30px;
+    padding: 5px 10px 5px;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  .navbar__login{
+    margin: 12px;
+  }
