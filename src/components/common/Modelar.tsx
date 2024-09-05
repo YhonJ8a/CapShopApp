@@ -24,7 +24,7 @@ const Modelo: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     return (
         <div className='model'>
-            <Canvas camera={{ zoom: 1, position: [2, 2, 2] }}>
+            <Canvas shadows camera={{ zoom: 1, position: [0, 1, 6] }}>
                 <ambientLight intensity={0.5} />
                 <pointLight position={[0, 1.6, 1.8]} intensity={4} />
                 <pointLight position={[0, -1.6, 1.8]} intensity={3} />
@@ -36,7 +36,7 @@ const Modelo: React.FC<{ children: ReactNode }> = ({ children }) => {
                 </RotatingObject>
                 <Suspense fallback={null}>
                     <RotatingObject>
-                        {children} {/* Aquí el children también rotará */}
+                        {children} 
                     </RotatingObject>
                 </Suspense>
                 <OrbitControls />

@@ -1,4 +1,3 @@
-// src/contexts/AuthContext.tsx
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { useRouter } from 'next/router';
 
@@ -14,13 +13,20 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const [user, setUser] = useState<string | null>(null);
     const router = useRouter();
 
+    React.useEffect(() => {
+        const loggedUser = localStorage.getItem('user');
+        if (loggedUser) setUser(JSON.parse(loggedUser));
+    }, []);
+
     const login = (username: string) => {
         setUser(username);
+        localStorage.setItem('user', JSON.stringify(username));
         router.push('/home');
     };
 
     const logout = () => {
         setUser(null);
+        localStorage.removeItem('user');
         router.push('/login');
     };
 

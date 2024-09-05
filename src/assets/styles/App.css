@@ -1,13 +1,140 @@
-body{
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-main{
-    height: 90vh;
-    background-color: rgba(255, 255, 255, 0);
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Cinzel:wght@400..900&family=Nerko+One&display=swap");
+
+/*
+https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Cinzel:wght@400..900&family=Nerko+One&display=swap
+ https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Nerko+One&display=swap  Bungee Tint
+ https://fonts.googleapis.com/css2?family=Nerko+One&display=swap      Nerko One
+*/
+body {
+  font-family: "Cinzel", sans-serif; /* Aplica la fuente Roboto a todo el cuerpo */
+  margin: 0;
 }
 
-.model{
-    height: 100%;
-    height: 100%;
+/* font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
+
+main {
+  height: 90vh;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.model {
+  height: 100%;
+  width: 100%;
+}
+
+/* Estilos personalizados para la página Home */
+
+.home-container {
+  text-align: center; /* Centramos el contenido */
+  padding: 2rem; /* Espaciado interno */
+  background-color: #f8f9fa; /* Fondo ligero para contraste */
+}
+
+.home-title {
+  font-size: 3rem; /* Tamaño de fuente grande */
+  font-weight: bold; /* Negrita para destacar */
+  margin-bottom: 2rem; /* Espacio debajo del título */
+  color: #333; /* Color del texto */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 0.1rem; /* Espaciado de letras */
+}
+
+.card-container {
+  display: flex; /* Flexbox para disposición */
+  justify-content: center; /* Centrado horizontal */
+  gap: 2rem; /* Espacio entre tarjetas */
+  margin-top: 2rem; /* Espacio encima del contenedor */
+}
+
+.card-custom {
+  width: 300px; /* Ancho de la tarjeta */
+  background-color: white; /* Fondo blanco */
+  border-radius: 12px; /* Bordes redondeados */
+  padding: 1rem; /* Espaciado interno */
+  text-align: center; /* Centramos el texto */
+}
+
+.custom-menubar {
+  margin-bottom: 2rem; /* Espacio debajo de la barra de menú */
+  border: none; /* Sin bordes */
+  background-color: transparent; /* Fondo transparente */
+}
+
+.p-button-outlined {
+  margin-top: 1rem; /* Espacio superior */
+}
+
+.p-button-rounded {
+  border-radius: 20px; /* Bordes más redondeados */
+}
+
+/* Estilos personalizados para la página Home */
+
+/* Sección de Hero que ocupa toda la pantalla */
+.hero-section {
+  position: relative; /* Para permitir posicionamiento absoluto de elementos hijos */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  display: flex; /* Flexbox para centrar el contenido */
+  align-items: center; /* Alineación vertical centrada */
+  justify-content: center; /* Alineación horizontal centrada */
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+  background-color: #f0f0f0; /* Fondo ligero */
+}
+
+/* Superposición oscura para el texto */
+.overlay {
+  position: absolute; /* Para superposición sobre el contenido */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  display: flex; /* Flexbox para centrar el título */
+  align-items: center; /* Alineación vertical centrada */
+  justify-content: center; /* Alineación horizontal centrada */
+  z-index: 1; /* Asegura que esté delante del modelo 3D */
+  /*background-color: rgba(255, 255, 255, 0);  */
+   
+}
+
+/* Estilo del título principal */
+.hero-title {
+  font-size: 6rem; /* Tamaño de fuente grande */
+  font-weight: bold; /* Texto en negrita */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 0.2rem; /* Espaciado de letras */
+  z-index: 2; /* Asegura que esté delante de todo */
+  text-align: center; /* Centramos el texto */
+  background: linear-gradient(rgb(0, 0, 0),rgb(255, 84, 84));
+  -webkit-background-clip: text;
+  color: transparent; 
+  font-weight: 700;
+}
+
+/* Sección de productos */
+.product-section {
+  padding: 4rem 2rem; /* Espaciado alrededor */
+  background-color: #f8f9fa; /* Fondo ligero */
+  text-align: center; /* Centramos el contenido */
+}
+
+/* Diseño de cuadrícula para las tarjetas de productos */
+.card-grid {
+  display: grid; /* Utilizamos grid para el diseño de cuadrícula */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Columnas adaptables */
+  gap: 2rem; /* Espacio entre tarjetas */
+  margin-top: 2rem; /* Espacio encima de las tarjetas */
+}
+
+/* Estilos personalizados de la tarjeta */
+.card-custom {
+  background-color: white; /* Fondo blanco */
+  border-radius: 12px; /* Bordes redondeados */
+  padding: 1rem; /* Espaciado interno */
+  text-align: center; /* Centramos el texto */
+  width: 100%; /* Ancho completo */
 }
