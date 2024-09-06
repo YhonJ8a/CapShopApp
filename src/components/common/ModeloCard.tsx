@@ -24,7 +24,7 @@ const ModeloCar: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     return (
         <div className='model'>
-            <Canvas camera={{ zoom: 2, position: [2, 2, 2] }}>
+            <Canvas camera={{ zoom: 1.8, position: [2, 2, 2] }}>
                 <ambientLight intensity={0.5} />
                 <pointLight position={[0, 1.6, 1.8]} intensity={4} />
                 <pointLight position={[0, -1.6, 1.8]} intensity={3} />

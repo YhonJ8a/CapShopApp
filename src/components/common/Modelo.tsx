@@ -24,10 +24,10 @@ const Modelo: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     return (
         <div className='model'>
-            <Canvas camera={{ zoom: 1, position: [2, 2, 2] }}>
+            <Canvas camera={{ zoom: 1.6, position: [2, 2, 2] }}>
                 <ambientLight intensity={0.5} />
-                <pointLight position={[0, 1.6, 1.8]} intensity={4} />
-                <pointLight position={[0, -1.6, 1.8]} intensity={3} />
+                <pointLight position={[0, 1.6, 1.8]} intensity={6} />
+                <pointLight position={[0, -1.6, 1.8]} intensity={5} />
                 <Sky distance={350000} sunPosition={[0, 1, 0]} inclination={2} azimuth={0.35} />
                 <RotatingObject>
                     <Plane args={[0.01, 0.01]} position={[0, 0, 0]}>

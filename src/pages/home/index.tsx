@@ -2,9 +2,9 @@ import React, { ReactNode } from 'react';
 import MainLayout from '../../components/layout/MainLayout';
 import ProtectedRoute from '../../components/routes/ProtectedRoute';
 
-import { Card } from 'primereact/card'; // Importar Card de PrimeReact
-import { Button } from 'primereact/button'; // Importar Button de PrimeReact
-import { Menubar } from 'primereact/menubar';
+import { Card } from 'primereact/card';
+import { Button } from 'primereact/button';
+import { Toast } from 'primereact/toast';
 
 import ModeloCard from '@/components/common/ModeloCard';
 import Modelo from '@/components/common/Modelo';
@@ -30,27 +30,31 @@ interface product {
 const listProducts: [product] = [
   {
     id: 1,
-    label: "Modelo 1",
+    label: "MLB 59Fifty",
     model: <Cap1 />,
-    description: 'diseno uno jeje.'
+    description: `Por más de 100 años, New Era ha sido un nombre destacado en el deporte
+y la cultura. En el 59FIFTY DAY celebramos al icono que nos pone a la delantera del juego.`
   },
   {
     id: 2,
-    label: "Modelo 2",
+    label: "GORRA ARMY RANGER VERDE OLIV",
     model: <Cap2 />,
-    description: 'diseno uno jeje.'
+    description: `Material: hecho de algodón, ligero y cómodo para un ajuste perfecto, especialmente para las actividades diarias.
+    Ligero y plegable: el algodón suave hace que sea plegable y aplastable, por lo que puedes llevarlo a todas partes fácilmente.`
   },
   {
     id: 3,
-    label: "Modelo 3",
+    label: "XYIYI Gorra de algodón unisex estilo militar",
     model: <Cap3 />,
-    description: 'diseno uno jeje.'
+    description: `Gorras militares para hombres y mujeres, adecuadas para primavera, verano, otoño
+El color puede ser ligeramente diferente entre la pantalla y en la práctica
+Adecuado para primavera, verano, otoño`
   },
   {
     id: 4,
-    label: "Modelo 4",
+    label: "Thenice Gorra de béisbol, cuerno de buey diablo",
     model: <Cap4 />,
-    description: 'diseno uno jeje.'
+    description: 'Gorra de felpa blanca con cachitos de Diablo Loko con rayas.'
   },
   {
     id: 5,
@@ -90,7 +94,13 @@ const listProducts: [product] = [
   },
 ];
 
-const CardModel = (item: product) => {
+const CardModel = (item: product, setModelSelec: (a: product) => {}) => {
+
+  const toast = React.useRef<Toast>(null);
+
+  const showSuccess = () => {
+    toast.current?.show({ severity: 'success', summary: 'Success', detail: 'Producto Agregado', life: 3000 });
+  }
   return (
     <Card className="p-shadow-3 card-custom2">
       <div className="overlay2">
@@ -105,34 +115,54 @@ const CardModel = (item: product) => {
         <Button
           label="Agregar al carrito"
           icon="pi pi-shopping-cart"
+          onClick={showSuccess}
           className="p-button-text  p-button-success mt-3 mr-3"
         />
         <Button
           label="Detalles"
           icon="pi pi-ellipsis-h"
+          onClick={() => setModelSelec(item)}
           className="p-button-text  p-button-primary mt-3 mr-3"
         />
       </div>
+      <Toast ref={toast} />
     </Card>
   );
 };
 
 const Home: React.FC = () => {
+
+  const [modelSelec, setModelSelec] = React.useState<product | null>(null);
+
+  React.useEffect(() => {
+    setModelSelec(listProducts[0]);
+  }, []);
+
   return (
     <ProtectedRoute>
       <MainLayout>
         <div className="hero-section">
           <div className="overlay">
-            <h1 className="hero-title">Busca tu estilo</h1>
+            <div className="grid">
+              <h1 className="hero-title">Encuentra tu estilo</h1>
+            </div>
+            <div className="gridY8">
+              {modelSelec && <h1>{modelSelec.label}</h1>}
+
+              <p className="mt-0 mb-4 text-100 line-height-3">
+                {modelSelec?.description}
+              </p>
+            </div>
           </div>
+
           <Modelo>
-            <Cap2 />
+            {modelSelec?.model}
           </Modelo>
         </div>
         <div className="product-section">
           <div className="card-grid">
             {
-              listProducts.map(item => CardModel(item))
+              listProducts.map(item => CardModel(item, setModelSelec))
             }
           </div>
         </div>

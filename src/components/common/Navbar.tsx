@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
         }
     ];
     function actionLogin() {
-        if(user) router.push('/login'); 
+        if (user) router.push('/login');
         else logout();
     }
 
@@ -53,8 +53,10 @@ const Navbar: React.FC = () => {
     );
 
     return (
-        <div className="card" style={{backgroundColor: '#ffffff0c'}}>
-            <Menubar model={items} start={start} end={end} />
+        <div className="card" style={{ backgroundColor: '#ffffff0c' }}>
+            <Menubar model={items} start={start} end={end} style={{
+                background: 'linearGradient(rgb(0, 0, 0),rgb(255, 84, 84))'
+            }} />
         </div>
     );
 };
