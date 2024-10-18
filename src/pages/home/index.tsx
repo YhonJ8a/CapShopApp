@@ -148,10 +148,13 @@ const Home: React.FC = () => {
             </div>
             <div className="gridY8">
               {modelSelec && <h1>{modelSelec.label}</h1>}
-
-              <p className="mt-0 mb-4 text-100 line-height-3">
-                {modelSelec?.description}
-              </p>
+              <div className='containergradient'>
+                <p className="mt-0 mb-4 text-100 line-height-3">
+                  {modelSelec?.description}
+                </p>
+              </div>
+            </div>
+            <div className="gridY8R">
             </div>
           </div>
 
@@ -172,28 +175,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-
-/*
-<ProtectedRoute>
-      <MainLayout>
-        <div className="home-container">
-          <Menubar model={[]} className="custom-menubar" /> 
-          <h1 className="home-title">Busca tu estilo</h1>
-          <div className="card-container">
-            <Card className="p-shadow-3 card-custom" title="Modelo 1">
-              <Modelo>
-                <Cap1 />
-              </Modelo>
-              <Button label="Ver detalles" icon="pi pi-search" className="p-button-outlined p-button-rounded p-button-secondary mt-3" />
-            </Card>
-            <Card className="p-shadow-3 card-custom" title="Modelo 2">
-              <Modelo>
-                <Cap2 />
-              </Modelo>
-              <Button label="Agregar al carrito" icon="pi pi-shopping-cart" className="p-button-rounded p-button-success mt-3" />
-            </Card>
-          </div>
-        </div>
-      </MainLayout>
-    </ProtectedRoute>
-*/

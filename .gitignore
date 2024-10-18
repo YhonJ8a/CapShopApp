@@ -9,6 +9,7 @@ lerna-debug.log*
 
 .next/
 out/
+*.gltf
 
 node_modules
 dist

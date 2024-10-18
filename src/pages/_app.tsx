@@ -6,9 +6,6 @@ import 'primereact/resources/primereact.css';
 import 'primeicons/primeicons.css';
 import '../assets/styles/App.css';
 
-
-
-
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <PrimeReactProvider>
